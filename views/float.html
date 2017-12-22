@@ -68,11 +68,255 @@
     		height: 75%;
     	}
 
+    	#keyboard-letter {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 240px;
+            background-color: #eee;
+            padding: 8px 0 0 5px;
+        }
+        #keyboard-letter > .contain {
+            height: 100%;
+        }
+        #keyboard-letter > .contain > ul {
+            width: 100%;
+            height: 25%;
+            text-align: center;
+            padding-bottom: 9px;
+        }
+        #keyboard-letter > .contain > ul > li {
+        	float: left;
+    		padding-right: 5px;
+    		width: 10%;
+    		height: 100%;
+        }
+        #keyboard-letter > .contain > ul > li > div {
+        	position: relative;
+        	height: 100%;
+    		font-size: 20px;
+    		border-radius: 5px;
+    		background-color: #fff;
+    		border: 1px solid #ddd;
+        }
+        #keyboard-letter > .contain > ul > li > div > span {
+        	position: absolute;
+        	top: 50%;
+        	left: 50%;
+        	width: 100%;
+        	transform: translate(-50%, -50%);
+        }
+        #keyboard-letter > .contain > ul:nth-child(2) {
+        	margin: 0 5%;
+        }
+        #keyboard-letter > .contain > ul:nth-child(3) > li:first-child,
+        #keyboard-letter > .contain > ul:nth-child(3) > li:last-child {
+            width: 15%;
+        }
+        #keyboard-letter > .contain > ul:nth-child(4) > li:first-child,
+        #keyboard-letter > .contain > ul:nth-child(4) > li:last-child {
+            width: 15%;
+        }
+        #keyboard-letter > .contain > ul:nth-child(4) > li:nth-child(2),
+        #keyboard-letter > .contain > ul:nth-child(4) > li:nth-child(6) {
+        	width: 13%;
+        }
+        #keyboard-letter > .contain > ul:nth-child(4) > li:nth-child(4) {
+        	width: 24%;
+        }
+
     </style>
 </head>
 <body>
 	<div id="app">
 		<h4>float布局</h4>
+		<div id="keyboard-letter">
+            <div class="contain">
+                <ul>
+                    <li>
+                    	<div>
+                    		<span>Q</span>
+                    	</div>
+                    </li>
+                    <li>
+                    	<div>
+                    		<span>W</span>
+                    	</div>
+                    </li>
+                    <li>
+                    	<div>
+                    		<span>E</span>
+                    	</div>
+                    </li>
+                    <li>
+                    	<div>
+                    		<span>R</span>
+                    	</div>
+                    </li>
+                    <li>
+                    	<div>
+                    		<span>T</span>
+                    	</div>
+                    </li>
+                    <li>
+                    	<div>
+                    		<span>Y</span>
+                    	</div>
+                    </li>
+                    <li>
+                    	<div>
+                    		<span>U</span>
+                    	</div>
+                    </li>
+                    <li>
+                    	<div>
+                    		<span>I</span>
+                    	</div>
+                    </li>
+                    <li>
+                    	<div>
+                    		<span>O</span>
+                    	</div>
+                    </li>
+                    <li>
+                    	<div>
+                    		<span>P</span>
+                    	</div>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                    	<div>
+                    		<span>A</span>
+                    	</div>
+                    </li>
+                    <li>
+                    	<div>
+                    		<span>S</span>
+                    	</div>
+                    </li>
+                    <li>
+                    	<div>
+                    		<span>D</span>
+                    	</div>
+                    </li>
+                    <li>
+                    	<div>
+                    		<span>F</span>
+                    	</div>
+                    </li>
+                    <li>
+                    	<div>
+                    		<span>G</span>
+                    	</div>
+                    </li>
+                    <li>
+                    	<div>
+                    		<span>H</span>
+                    	</div>
+                    </li>
+                    <li>
+                    	<div>
+                    		<span>J</span>
+                    	</div>
+                    </li>
+                    <li>
+                    	<div>
+                    		<span>K</span>
+                    	</div>
+                    </li>
+                    <li>
+                    	<div>
+                    		<span>L</span>
+                    	</div>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                    	<div>
+                    		<span>up</span>
+                    	</div>
+                    </li>
+                    <li>
+                    	<div>
+                    		<span>Z</span>
+                    	</div>
+                    </li>
+                    <li>
+                    	<div>
+                    		<span>X</span>
+                    	</div>
+                    </li>
+                    <li>
+                    	<div>
+                    		<span>C</span>
+                    	</div>
+                    </li>
+                    <li>
+                    	<div>
+                    		<span>V</span>
+                    	</div>
+                    </li>
+                    <li>
+                    	<div>
+                    		<span>B</span>
+                    	</div>
+                    </li>
+                    <li>
+                    	<div>
+                    		<span>N</span>
+                    	</div>
+                    </li>
+                    <li>
+                    	<div>
+                    		<span>M</span>
+                    	</div>
+                    </li>
+                    <li>
+                    	<div>
+                    		<span>x</span>
+                    	</div>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                    	<div>
+                    		<span>符</span>
+                    	</div>
+                    </li>
+                    <li onclick="letter2number()">
+                    	<div>
+                    		<span>123</span>
+                    	</div>
+                    </li>
+                    <li>
+                    	<div>
+                    		<span>,</span>
+                    	</div>
+                    </li>
+                    <li>
+                    	<div>
+                    		<span></span>
+                    	</div>
+                    </li>
+                    <li>
+                    	<div>
+                    		<span>.</span>
+                    	</div>
+                    </li>
+                    <li>
+                    	<div>
+                    		<span style="font-size: 14px;">中/英</span>
+                    	</div>
+                    </li>
+                    <li>
+                    	<div>
+                    		<span>wrap</span>
+                    	</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
 		<div id="keyboard">
 			<div class="content">
 				<ul class="left">
@@ -103,7 +347,7 @@
 							<span>7</span>
 						</div>
 					</li>
-					<li id="back">
+					<li id="back" onclick="number2letter()">
 						<div>
 							<span>back</span>
 						</div>
@@ -178,5 +422,19 @@
 			</div>
 		</div>
 	</div>
+
+	<script>
+		
+		function number2letter () {
+	        document.getElementById('keyboard-letter').style.display = 'block'
+	        document.getElementById('keyboard').style.display = 'none'
+	    }
+	    function letter2number () {
+	        document.getElementById('keyboard').style.display = 'block'
+	        document.getElementById('keyboard-letter').style.display = 'none'
+	    }
+
+	</script>
+	
 </body>
 </html>

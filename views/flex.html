@@ -58,14 +58,191 @@
     		align-items: center;
     	}
     	#symbol {
-    		flex: 3;
+    		flex-basis: 75%;
     	}
+    	#sign {
+    		flex-basis: 25%;
+    	}
+
+    	#keyboard-letter {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 240px;
+            background-color: #eee;
+            padding: 8px 0 8px 5px;
+        }
+        #keyboard-letter > .contain {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+        }
+        #keyboard-letter > .contain > ul {
+            flex: 1;
+            display: flex;
+            width: 100%;
+        }
+        #keyboard-letter > .contain > ul + ul{
+            padding-top: 10px;
+        }
+        #keyboard-letter > .contain > ul > li {
+        	flex: 1;
+        	flex-basis: 10%;
+    		padding-right: 5px;
+        }
+        #keyboard-letter > .contain > ul > li > div{
+        	height: 100%;
+    		font-size: 20px;
+    		border-radius: 5px;
+    		background-color: #fff;
+    		border: 1px solid #ddd;
+    		display: flex;
+    		justify-content: center;
+    		align-items: center;
+        }
+        #keyboard-letter > .contain > ul:nth-child(2) {
+            width: 90%;
+        }
+        #keyboard-letter > .contain > ul:nth-child(3) > li:first-child,
+        #keyboard-letter > .contain > ul:nth-child(3) > li:last-child {
+            flex-basis: 15%;
+        }
+        #keyboard-letter > .contain > ul:nth-child(4) > li:first-child,
+        #keyboard-letter > .contain > ul:nth-child(4) > li:last-child {
+            flex-basis: 15%;
+        }
+        #keyboard-letter > .contain > ul:nth-child(4) > li:nth-child(2),
+        #keyboard-letter > .contain > ul:nth-child(4) > li:nth-child(6) {
+        	flex-basis: 13%;
+        }
+        #keyboard-letter > .contain > ul:nth-child(4) > li:nth-child(4) {
+        	flex-basis: 24%;
+        }
 
     </style>
 </head>
 <body>
 	<div id="app">
 		<h4>flex布局</h4>
+		<div id="keyboard-letter">
+            <div class="contain">
+                <ul>
+                    <li>
+                    	<div>Q</div>
+                    </li>
+                    <li>
+                    	<div>W</div>
+                    </li>
+                    <li>
+                    	<div>E</div>
+                    </li>
+                    <li>
+                    	<div>R</div>
+                    </li>
+                    <li>
+                    	<div>T</div>
+                    </li>
+                    <li>
+                    	<div>Y</div>
+                    </li>
+                    <li>
+                    	<div>U</div>
+                    </li>
+                    <li>
+                    	<div>I</div>
+                    </li>
+                    <li>
+                    	<div>O</div>
+                    </li>
+                    <li>
+                    	<div>P</div>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                    	<div>A</div>
+                    </li>
+                    <li>
+                    	<div>S</div>
+                    </li>
+                    <li>
+                    	<div>D</div>
+                    </li>
+                    <li>
+                    	<div>F</div>
+                    </li>
+                    <li>
+                    	<div>G</div>
+                    </li>
+                    <li>
+                    	<div>H</div>
+                    </li>
+                    <li>
+                    	<div>J</div>
+                    </li>
+                    <li>
+                    	<div>K</div>
+                    </li>
+                    <li>
+                    	<div>L</div>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                    	<div>up</div>
+                    </li>
+                    <li>
+                    	<div>Z</div>
+                    </li>
+                    <li>
+                    	<div>X</div>
+                    </li>
+                    <li>
+                    	<div>C</div>
+                    </li>
+                    <li>
+                    	<div>V</div>
+                    </li>
+                    <li>
+                    	<div>B</div>
+                    </li>
+                    <li>
+                    	<div>N</div>
+                    </li>
+                    <li>
+                    	<div>M</div>
+                    </li>
+                    <li>
+                    	<div>x</div>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                    	<div>符</div>
+                    </li>
+                    <li onclick="letter2number()">
+                    	<div>123</div>
+                    </li>
+                    <li>
+                    	<div>,</div>
+                    </li>
+                    <li>
+                    	<div></div>
+                    </li>
+                    <li>
+                    	<div>.</div>
+                    </li>
+                    <li>
+                    	<div style="font-size: 14px;">中/英</div>
+                    </li>
+                    <li>
+                    	<div>wrap</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
 		<div id="keyboard">
 			<div class="content">
 				<ul class="left">
@@ -86,7 +263,7 @@
 					<li class="number">
 						<div>7</div>
 					</li>
-					<li id="back">
+					<li id="back" onclick="number2letter()">
 						<div>back</div>
 					</li>
 				</ul>
@@ -135,5 +312,19 @@
 			</div>
 		</div>
 	</div>
+
+	<script>
+		
+		function number2letter () {
+	        document.getElementById('keyboard-letter').style.display = 'block'
+	        document.getElementById('keyboard').style.display = 'none'
+	    }
+	    function letter2number () {
+	        document.getElementById('keyboard').style.display = 'block'
+	        document.getElementById('keyboard-letter').style.display = 'none'
+	    }
+
+	</script>
+
 </body>
 </html>

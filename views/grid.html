@@ -56,7 +56,7 @@
             width: 100%;
             height: 240px;
             background-color: #eee;
-            padding: 8px 5px;
+            padding: 8px 0 8px 5px;
         }
         #keyboard-letter > .contain {
             display: grid;
@@ -66,80 +66,55 @@
         }
         #keyboard-letter > .contain > ul {
             display: grid;
-            grid-template-columns: repeat(10, 1fr);
-            grid-gap: 5px 5px;
+            grid-template-columns: repeat(100, 1fr);
+            /*grid-gap: 5px 5px;*/
         }
         #keyboard-letter > .contain > ul > li {
             display: grid;
+            grid-area: span 1 / span 10;
             justify-content: center;
             align-items: center;
+            margin-right: 5px;
             background-color: #fff;
             border-radius: 5px;
             border: 1px solid #ddd;
+            font-size: 20px;
         }
-        /*#keyboard-letter > .contain > ul:nth-child(2) {
-            grid-template-columns: repeat(20, 1fr);
-        }
-        #keyboard-letter > .contain > ul:nth-child(2) > li {
-            grid-area: span 1 / span 2;
-        }
-        #keyboard-letter > .contain > ul:nth-child(2) > li:first-child {
-            grid-column-start: 2;
-            grid-column-end: 4;
-        }
-        #keyboard-letter > .contain > ul:nth-child(3) {
-            grid-template-columns: 1.5fr repeat(7, 1fr) 1.5fr;
-        }
-        #keyboard-letter > .contain > ul:nth-child(4) {
-            grid-template-columns: repeat(4, 1fr) 2fr 1fr 1.5fr 1.5fr;
-        }*/
         #keyboard-letter > .contain > ul:nth-child(2) {
-            grid-template-columns: 1.4fr 7fr 1.4fr;
+            grid-template-columns: repeat(100, 1fr);
         }
-        #keyboard-letter > .contain > ul:nth-child(2) > ul {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            grid-gap: 5px 5px;
+        #keyboard-letter > .contain > ul:nth-child(2) > li{
+            grid-area: span 1 / span 10;
         }
-        #keyboard-letter > .contain > ul:nth-child(2) > ul > li {
-            display: grid;
-            justify-content: center;
-            align-items: center;
-            background-color: #fff;
-            border-radius: 5px;
-            border: 1px solid #ddd;
+        #keyboard-letter > .contain > ul:nth-child(2) > li:nth-child(1) {
+            grid-column: 6 / 16;
         }
         #keyboard-letter > .contain > ul:nth-child(3) {
-            grid-template-columns: 1.4fr 7fr 1.4fr;
+            grid-template-columns: repeat(100, 1fr);
         }
-        #keyboard-letter > .contain > ul:nth-child(3) > ul {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            grid-gap: 5px 5px;
+        #keyboard-letter > .contain > ul:nth-child(3) > li {
+            grid-area: span 1 / span 10;
         }
-        #keyboard-letter > .contain > ul:nth-child(3) > ul > li {
-            display: grid;
-            justify-content: center;
-            align-items: center;
-            background-color: #fff;
-            border-radius: 5px;
-            border: 1px solid #ddd;
+        #keyboard-letter > .contain > ul:nth-child(3) > li:first-child,
+        #keyboard-letter > .contain > ul:nth-child(3) > li:last-child {
+            grid-area: span 1 / span 15;
         }
         #keyboard-letter > .contain > ul:nth-child(4) {
-            grid-template-columns: 1.4fr 7fr 1.4fr;
+            grid-template-columns: repeat(100, 1fr);
         }
-        #keyboard-letter > .contain > ul:nth-child(4) > ul {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr 3.5fr 1fr 1.5fr;
-            grid-gap: 5px 5px;
+        #keyboard-letter > .contain > ul:nth-child(4) > li {
+            grid-area: span 1 / span 10;
         }
-        #keyboard-letter > .contain > ul:nth-child(4) > ul > li {
-            display: grid;
-            justify-content: center;
-            align-items: center;
-            background-color: #fff;
-            border-radius: 5px;
-            border: 1px solid #ddd;
+        #keyboard-letter > .contain > ul:nth-child(4) > li:first-child,
+        #keyboard-letter > .contain > ul:nth-child(4) > li:last-child {
+            grid-area: span 1 / span 15;
+        }
+        #keyboard-letter > .contain > ul:nth-child(4) > li:nth-child(2),
+        #keyboard-letter > .contain > ul:nth-child(4) > li:nth-child(6) {
+            grid-area: span 1 / span 13;
+        }
+        #keyboard-letter > .contain > ul:nth-child(4) > li:nth-child(4) {
+            grid-area: span 1 / span 24;
         }
     </style>
 </head>
@@ -162,7 +137,6 @@
                 </ul>
                 <ul>
                     <li>A</li>
-                    <ul>
                         <li>S</li>
                         <li>D</li>
                         <li>F</li>
@@ -170,36 +144,33 @@
                         <li>H</li>
                         <li>J</li>
                         <li>K</li>
-                    </ul>
                     <li>L</li>
                 </ul>
                 <ul>
                     <li>up</li>
-                    <ul>
-                        <li>Z</li>
-                        <li>X</li>
-                        <li>C</li>
-                        <li>V</li>
-                        <li>B</li>
-                        <li>N</li>
-                        <li>M</li>
-                    </ul>
+                    <li>Z</li>
+                    <li>X</li>
+                    <li>C</li>
+                    <li>V</li>
+                    <li>B</li>
+                    <li>N</li>
+                    <li>M</li>
                     <li>x</li>
                 </ul>
                 <ul>
                     <li>符</li>
-                    <ul>
-                        <li>123</li>
-                        <li>,</li>
-                        <li></li>
-                        <li>.</li>
-                        <li>中/英</li>
-                    </ul>
-                    <li>back</li>
+                    <li onclick="letter2number()">123</li>
+                    <li>,</li>
+                    <li></li>
+                    <li>.</li>
+                    <li>
+                        <span style="font-size: 14px;">中/英</span>
+                    </li>
+                    <li>wrap</li>
                 </ul>
             </div>
         </div>
-		<!-- <div id="keyboard">
+		<div id="keyboard">
 			<ul>
 				<li id="symbol"></li>
 				<li class="number">
@@ -217,14 +188,26 @@
 				<li class="number">9</li>
 				<li id="at">@</li>
 				<li id="sign">符</li>
-				<li id="return">back</li>
+				<li id="return" onclick="number2letter()">back</li>
 				<li class="number">0</li>
 				<li id="space">
 					<span></span>
 				</li>
 				<li id="wrap">wrap</li>
 			</ul>
-		</div> -->
+		</div>
 	</div>
+    <script>
+        
+    function number2letter () {
+        document.getElementById('keyboard-letter').style.display = 'block'
+        document.getElementById('keyboard').style.display = 'none'
+    }
+    function letter2number () {
+        document.getElementById('keyboard').style.display = 'block'
+        document.getElementById('keyboard-letter').style.display = 'none'
+    }
+
+    </script>
 </body>
 </html>
