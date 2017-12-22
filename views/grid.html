@@ -12,6 +12,7 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <script src="../common.js"></script>
     <style>
     	
     	html,body,div,input,ul,li{
@@ -21,8 +22,10 @@
     	}
     	ul{
     		list-style: none;
+            user-select: none;
     	}
     	#keyboard{
+            display: none;
     		position: fixed;
     		bottom: 0;
     		width: 100%;
@@ -116,11 +119,27 @@
         #keyboard-letter > .contain > ul:nth-child(4) > li:nth-child(4) {
             grid-area: span 1 / span 24;
         }
+
+        /*common css*/
+        #keyboard #space > span, #keyboard-letter #space > span {
+            width: 20px;
+            height: 4px;
+            border: 3px solid #000;
+            border-top: none;
+            border-left-width: 4px;
+            border-right-width: 4px;
+        }
+        #keyboard > ul > li:active, #keyboard-letter ul > li:active {
+            background-color: #eee;
+        }
+
     </style>
 </head>
 <body>
 	<div id="app">
         <h4>grid布局</h4>
+        <button onclick="fullScreen('grid')">full screen</button>
+        <button onclick="exit()">exit</button>
         <div id="keyboard-letter">
             <div class="contain">
                 <ul>
@@ -155,13 +174,15 @@
                     <li>B</li>
                     <li>N</li>
                     <li>M</li>
-                    <li>x</li>
+                    <li>×</li>
                 </ul>
                 <ul>
                     <li>符</li>
                     <li onclick="letter2number()">123</li>
                     <li>,</li>
-                    <li></li>
+                    <li id="space">
+                        <span></span>
+                    </li>
                     <li>.</li>
                     <li>
                         <span style="font-size: 14px;">中/英</span>
@@ -173,23 +194,25 @@
 		<div id="keyboard">
 			<ul>
 				<li id="symbol"></li>
-				<li class="number">
+				<li>
 					<span>1</span>
 				</li>
-				<li class="number">2</li>
-				<li class="number">3</li>
-				<li id="delete">x</li>
-				<li class="number">4</li>
-				<li class="number">5</li>
-				<li class="number">6</li>
+				<li>2</li>
+				<li>3</li>
+				<li id="delete">
+                    <span>×</span>            
+                </li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
 				<li id="point">.</li>
-				<li class="number">7</li>
-				<li class="number">8</li>
-				<li class="number">9</li>
+				<li>7</li>
+				<li>8</li>
+				<li>9</li>
 				<li id="at">@</li>
 				<li id="sign">符</li>
 				<li id="return" onclick="number2letter()">back</li>
-				<li class="number">0</li>
+				<li>0</li>
 				<li id="space">
 					<span></span>
 				</li>
@@ -197,17 +220,5 @@
 			</ul>
 		</div>
 	</div>
-    <script>
-        
-    function number2letter () {
-        document.getElementById('keyboard-letter').style.display = 'block'
-        document.getElementById('keyboard').style.display = 'none'
-    }
-    function letter2number () {
-        document.getElementById('keyboard').style.display = 'block'
-        document.getElementById('keyboard-letter').style.display = 'none'
-    }
-
-    </script>
 </body>
 </html>

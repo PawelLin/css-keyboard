@@ -12,6 +12,7 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <script src="../common.js"></script>
     <style>
     	
     	html,body,div,input,ul,li{
@@ -21,8 +22,10 @@
     	}
     	ul{
     		list-style: none;
+    		user-select: none;
     	}
-    	#keyboard{
+    	#keyboard {
+            display: none;
     		position: fixed;
     		bottom: 0;
     		width: 100%;
@@ -30,24 +33,24 @@
     		background-color: #eee;
     		padding: 5px 0 0 5px;
     	}
-    	.content {
+    	#keyboard > .content {
     		display: flex;
     		height: 100%;
     	}
-    	.content > ul {
+    	#keyboard > .content > ul {
     		display: flex;
     		flex-direction: column;
     		flex: 1;
     		padding-right: 5px;
     	}
-    	.content > .left, .content > .right {
+    	#keyboard > .content > .left, .content > .right {
     		flex: 0.8;
     	}
-    	.content li {
+    	#keyboard > .content li {
     		flex: 1;
     		padding-bottom: 5px;
     	}
-    	.content li > div{
+    	#keyboard > .content li > div{
     		height: 100%;
     		font-size: 20px;
     		border-radius: 5px;
@@ -57,10 +60,10 @@
     		justify-content: center;
     		align-items: center;
     	}
-    	#symbol {
+    	#keyboard #symbol {
     		flex-basis: 75%;
     	}
-    	#sign {
+    	#keyboard #sign {
     		flex-basis: 25%;
     	}
 
@@ -72,27 +75,27 @@
             background-color: #eee;
             padding: 8px 0 8px 5px;
         }
-        #keyboard-letter > .contain {
+        #keyboard-letter > .content {
             display: flex;
             flex-wrap: wrap;
             flex-direction: column;
             align-items: center;
             height: 100%;
         }
-        #keyboard-letter > .contain > ul {
+        #keyboard-letter > .content > ul {
             flex: 1;
             display: flex;
             width: 100%;
         }
-        #keyboard-letter > .contain > ul + ul{
+        #keyboard-letter > .content > ul + ul{
             padding-top: 10px;
         }
-        #keyboard-letter > .contain > ul > li {
+        #keyboard-letter > .content > ul > li {
         	flex: 1;
         	flex-basis: 10%;
     		padding-right: 5px;
         }
-        #keyboard-letter > .contain > ul > li > div{
+        #keyboard-letter > .content > ul > li > div{
         	height: 100%;
     		font-size: 20px;
     		border-radius: 5px;
@@ -102,23 +105,36 @@
     		justify-content: center;
     		align-items: center;
         }
-        #keyboard-letter > .contain > ul:nth-child(2) {
+        #keyboard-letter > .content > ul:nth-child(2) {
             width: 90%;
         }
-        #keyboard-letter > .contain > ul:nth-child(3) > li:first-child,
-        #keyboard-letter > .contain > ul:nth-child(3) > li:last-child {
+        #keyboard-letter > .content > ul:nth-child(3) > li:first-child,
+        #keyboard-letter > .content > ul:nth-child(3) > li:last-child {
             flex-basis: 15%;
         }
-        #keyboard-letter > .contain > ul:nth-child(4) > li:first-child,
-        #keyboard-letter > .contain > ul:nth-child(4) > li:last-child {
+        #keyboard-letter > .content > ul:nth-child(4) > li:first-child,
+        #keyboard-letter > .content > ul:nth-child(4) > li:last-child {
             flex-basis: 15%;
         }
-        #keyboard-letter > .contain > ul:nth-child(4) > li:nth-child(2),
-        #keyboard-letter > .contain > ul:nth-child(4) > li:nth-child(6) {
+        #keyboard-letter > .content > ul:nth-child(4) > li:nth-child(2),
+        #keyboard-letter > .content > ul:nth-child(4) > li:nth-child(6) {
         	flex-basis: 13%;
         }
-        #keyboard-letter > .contain > ul:nth-child(4) > li:nth-child(4) {
+        #keyboard-letter > .content > ul:nth-child(4) > li:nth-child(4) {
         	flex-basis: 24%;
+        }
+
+        /*common css*/
+        #keyboard #space > div > span, #keyboard-letter #space > div > span {
+            width: 20px;
+            height: 4px;
+            border: 3px solid #000;
+            border-top: none;
+            border-left-width: 4px;
+            border-right-width: 4px;
+        }
+        #keyboard ul > li > div:active, #keyboard-letter ul > li > div:active {
+            background-color: #eee;
         }
 
     </style>
@@ -126,8 +142,10 @@
 <body>
 	<div id="app">
 		<h4>flex布局</h4>
+        <button onclick="fullScreen('flex')">full screen</button>
+        <button onclick="exit()">exit</button>
 		<div id="keyboard-letter">
-            <div class="contain">
+            <div class="content">
                 <ul>
                     <li>
                     	<div>Q</div>
@@ -215,7 +233,7 @@
                     	<div>M</div>
                     </li>
                     <li>
-                    	<div>x</div>
+                    	<div>×</div>
                     </li>
                 </ul>
                 <ul>
@@ -228,8 +246,10 @@
                     <li>
                     	<div>,</div>
                     </li>
-                    <li>
-                    	<div></div>
+                    <li id="space">
+                    	<div>
+                            <span></span>   
+                        </div>
                     </li>
                     <li>
                     	<div>.</div>
@@ -292,12 +312,14 @@
 						<div>9</div>
 					</li>
 					<li id="space">
-						<div></div>
+						<div>
+                            <span></span>                  
+                        </div>
 					</li>
 				</ul>
 				<ul class="right">
 					<li id="delete">
-						<div>x</div>
+						<div>×</div>
 					</li>
 					<li id="point">
 						<div>.</div>
@@ -312,19 +334,6 @@
 			</div>
 		</div>
 	</div>
-
-	<script>
-		
-		function number2letter () {
-	        document.getElementById('keyboard-letter').style.display = 'block'
-	        document.getElementById('keyboard').style.display = 'none'
-	    }
-	    function letter2number () {
-	        document.getElementById('keyboard').style.display = 'block'
-	        document.getElementById('keyboard-letter').style.display = 'none'
-	    }
-
-	</script>
 
 </body>
 </html>
