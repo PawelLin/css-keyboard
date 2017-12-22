@@ -129,7 +129,7 @@ ul{
 }
 
 @supports not(display: grid) {
-	@supports (flex-basis: 25%) {
+	@supports (display: flex) {
     	#keyboard > .content {
     		display: flex;
     		height: 100%;
@@ -228,7 +228,7 @@ ul{
         }
 	}
 
-	@supports not(flex-basis: 25%) {
+	@supports not(display: flex) {
 		#keyboard > .content {
     		height: 100%;
     	}
